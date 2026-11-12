@@ -1,0 +1,19 @@
+Upstream: https://github.com/mamedev/mame
+Tag:      mame0289
+Commit:   f34f02505e32c1993c6a782b6814232cbfc74e36
+
+Adapted (BSD-3-Clause, copyright-holders: hap, Henrik Algestam; thanks-to: Igor,
+Sean Riddle, Lee Robson, Milan Galcik):
+  src/devices/cpu/sm510/sm510base.{h,cpp}, sm510op.cpp, sm510.{h,cpp},
+  sm500.{h,cpp}, sm500op.cpp, sm5a.{h,cpp}, sm511.{h,cpp},
+  sm530.{h,cpp}, sm530op.cpp                 -> src/cpu/sm5xx.{c,h}
+  src/mame/handheld/hh_sm510.{h,cpp}         -> src/hardware/machine.c,
+                                                src/content/machines_mame.inc
+
+Converted (CC0-1.0, hap):
+  src/mame/layout/elbaskb.lay                -> src/content/builtin_elbaskb.inc
+
+Vendored unchanged except one line (zlib licence, Mikko Mononen, MAME fork):
+  3rdparty/nanosvg/src/nanosvg.h, nanosvgrast.h -> third_party/nanosvg/
+  Change: nanosvg.h line 2855 `(NSVGshape *)(nullptr)` -> `(NSVGshape *)0`
+          so the header compiles as C11.
